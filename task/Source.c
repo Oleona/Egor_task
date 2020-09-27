@@ -21,7 +21,7 @@ struct interval_t
 	double right_border;
 };
 
-//Вова, что за count? похоже на антиппатерн по именованию
+
 void free_results(char **results, unsigned int count);
 
 
@@ -41,13 +41,12 @@ double simpsons_rule(double left_border, double right_border)
 
 double integrate(struct interval_t interval, unsigned int partition_size, double(*method)(double, double))
 {
-	//Поговорить об осмысленности использования auto
+	
 	double integral_value = 0.0;
 	double part_length = (interval.right_border - interval.left_border) / partition_size;
 	double part_left_border = interval.left_border;
 
-	//Поговорить про отделение элементов программы пустыми строками: методы, объявления переменных и логика
-	//Тут же сразу про скобочки и сказать "читайте Макконелла" - текст 1993 года, но ой какой акутальный
+	
 	for (unsigned int i = 0; i < partition_size; ++i)
 	{
 		double part_right_border = part_left_border + part_length;
